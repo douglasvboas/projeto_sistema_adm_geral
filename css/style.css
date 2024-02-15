@@ -1,0 +1,8 @@
+#fundo_orcamento {
+    background-image: url('img/lojajetflow3.png');
+    background-size: 50%; /* Defina o tamanho desejado */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+}

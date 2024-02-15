@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="css/css.css">
+    <title>Jet Flow</title>
+</head>
+
+<body
+    style="background-image: url('img/fundo03.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
+    <container>
+        <div>
+            <nav id="menuSuperiorCadastro" class="navbar navbar-expand-lg ">
+                <img src="img/jetFlowG.jpg" width="80px" class="navbar-brand" routerLink="/">
+                <!-- navbar -->
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href=""><span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active" href=""><span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link text-white" href="./index.html">Login</a>
+                    <a class="nav-item nav-link text-white" href="./consultaClientes.html">Consulta Clientes</a>
+                    <a class="nav-item nav-link text-white" href="./orcamento.html">Orçamento</a>
+                    <a class="nav-item nav-link text-white" href="./consultaOrcamento.html">Consulta Orçamentos</a>
+                </div>
+        </div>
+        </div>
+    </container>
+    <main>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card shadow-lg border-0 rounded-lg mt-3"
+                        style="background-color: rgba(255, 255, 255, 0.8);">
+                        <div class="card-header">
+                            <h3 class="text-left font-weight-bold font-weight-light my-3">Cadastro Cliente</h3>
+                        </div>
+                        <div class="card-body">
+
+                            <body>
+                                <form action="processa_formulario_cadastro.php" method="POST">
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <div class="form-floating mb-3">
+                                                <label for="inputCpf">CPF</label>
+                                                <input name="cpf" class="form-control" id="inputCpf" type="text"
+                                                    placeholder="CPF" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 offset-md-4">
+                                            <div class="form-floating mb-3">
+                                                <label for="inputDate">Data do Cadastro</label>
+                                                <input name="data_cadastro" class="form-control" id="inputData_cadastro"
+                                                    type="text" placeholder="DD/MM/AAAA" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3 mb-md-0">
+                                                <label for="inputFirstName">Nome</label>
+                                                <input name="nome" class="form-control" id="inputFirstName" type="text"
+                                                    placeholder="Nome" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <label for="inputLastName">Telefone</label>
+                                                <input name="telefone" class="form-control" type="text"
+                                                    placeholder="Nº telefone com (DDD)" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <label for="inputEmail">Email </label>
+                                        <input name="email" class="form-control" type="email"
+                                            placeholder="name@example.com" />
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3 mb-md-0">
+                                                <label for="inputMarcaModelo">Marca / Modelo</label>
+                                                <input name="marca_modelo" class="form-control" type="marca_Modelo"
+                                                    placeholder="Marca / Modelo" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <label for="inputAnoFabricacao">Ano / Fabricação</label>
+                                                <input name="ano_fabricacao" class="form-control" type="anoFabricacao"
+                                                    placeholder="Ano / Fabricação" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 mb-0">
+                                        <div class="d-grid"><button type="submit"
+                                                class="btn btn-primary btn-block">Salvar Cadastro</button></div>
+                                    </div>
+                                </form>
+                            </body>
+                            <script>
+                                // Função para incrementar a data
+                                function incrementDate() {
+                                    // Obter o valor atual da data
+                                    var currentDate = document.getElementById('inputDate').value;
+
+                                    // Verificar se a data está no formato correto
+                                    var dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
+                                    if (!dateRegex.test(currentDate)) {
+                                        alert('Por favor, insira a data no formato DD/MM/AAAA');
+                                        return;
+                                    }
+
+                                    // Converter a string de data em um objeto Date
+                                    var parts = currentDate.split('/');
+                                    var day = parseInt(parts[0], 10);
+                                    var month = parseInt(parts[1], 10) - 1; // Os meses em JavaScript começam do zero
+                                    var year = parseInt(parts[2], 10);
+                                    var dateObject = new Date(year, month, day);
+
+                                    // Incrementar a data em um dia
+                                    dateObject.setDate(dateObject.getDate() + 1);
+
+                                    // Formatando a nova data no formato DD/MM/AAAA
+                                    var newDate = ('0' + dateObject.getDate()).slice(-2) + '/' + ('0' + (dateObject.getMonth() + 1)).slice(-2) + '/' + dateObject.getFullYear();
+
+                                    // Atualizar o valor do campo de entrada
+                                    document.getElementById('inputDate').value = newDate;
+                                }
+                            </script>
+
+</html>

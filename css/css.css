@@ -1,0 +1,72 @@
+#telaLogin{
+    width: 350px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 5px 30px rgb(195,195, 195);
+    opacity: 0.8;
+}
+#fundoIndex{
+    /* background-color: rgb(211, 201, 201); */
+    background-image: url("file:////img/logoJetFlow.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#fundo{
+    /* background-color: rgb(211, 201, 201); */
+    background-image: url("file:////img/fundoPadrao.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#fundoOrcamento{
+    /* background-color: rgb(211, 201, 201); */
+    background-image: url("file:////img/fundoJet.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#fundocadastro{
+    /* background-color: rgb(211, 201, 201); */
+    background-image: url("file:////img/fundoJetAtracado.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#menuCadastro{
+    /* background-color: rgb(211, 201, 201); */
+    background-image: url("file:////img/fundo03.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#menuSuperior{
+
+    background-color: rgb(240, 247, 245);
+    opacity: 0.6;
+    
+}
+#layoutAuthentication{
+    opacity: 0.8;
+}
+#service{
+    position: relative;
+    left: -15px;
+}
+#servico{
+    background-color: rgb(242, 244, 206);
+    opacity: 0.7;
+}
+#gridOrcamento{
+    margin-top: 100px;
+    position: absolute;
+    left: 150px;  
+    background-color: gainsboro;
+    opacity: 0.7;
+}
+
+
+

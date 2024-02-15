@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<script src="caminho/para/search.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Jet Flow</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="css/css.css">
+</head>
+
+<body
+    style="background-image: url('img/jetskivoo.jpeg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
+    <container>
+        <div>
+            <nav id="menuSuperiorCadastro" class="navbar navbar-expand-lg">
+                <img src="img/jetFlowG.jpg" width="80px" class="navbar-brand" routerLink="/">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href=""><span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active" href=""><span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link " href="./index.html">Login</a>
+                    <a class="nav-item nav-link " href="./cadastro.html">Cadastro Clientes</a>
+                    <a class="nav-item nav-link " href="./orcamento.html">Orçamento</a>
+                    <a class="nav-item nav-link " href="./consultaOrcamento.html">Consulta Orçamentos</a>
+                </div>
+            </nav>
+        </div>
+    </container>
+    <container>
+        <main>
+            <div class="container" style="opacity: 0.8;">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="card shadow-lg border-0 rounded-lg mt-3"
+                            style="background-color: rgba(255, 255, 255, 0.8);">
+                            <div class="card-header">
+                                <h4 class="text-left font-weight-bold font-weight-light my-3"> Orçamentos Gerados</h4>
+                                <div class="input-group mb-3">
+                                    <input type="text" id="searchInput" class="form-control"
+                                        placeholder="Pesquisar por nome" aria-label="Pesquisar por nome"
+                                        aria-describedby="button-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                                            onclick="searchClients()">Pesquisar</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="font-weight-bold">Item</th>
+                                            <th class="font-weight-bold">Descrição</th>
+                                            <th class="font-weight-bold">Quantidade</th>
+                                            <th class="font-weight-bold">Preço Unitário </th>
+                                            <th class="font-weight-bold">Total</th>
+                                            <th class="font-weight-bold">Descontos</th>
+                                            <th class="font-weight-bold">Total Geral</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Aqui serão exibidos os resultados da busca -->
+                                    </tbody>
+                                </table>
+                                <!-- Paginador -->
+                                <nav aria-label="Paginação">
+                                    <ul class="pagination justify-content-center">
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" tabindex="-1"
+                                                aria-disabled="true">Anterior</a>
+                            </li>
+    <li class="page-item"><a class="page-link"  href="listar_clientes.php?page=1">1</a></li>
+    <li class="page-item"><a class="page-link"  href="listar_clientes.php?page=2">2</a></li>
+    <li class="page-item"><a class="page-link"  href="listar_clientes.php?page=3">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Próxima</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </container>
+
+    <script>
+        function searchClients() {
+            var searchTerm = document.getElementById("searchInput").value;
+
+            // Enviar a solicitação ao servidor para buscar os clientes com o nome correspondente a searchTerm
+            // Você pode usar AJAX ou Fetch API para fazer a solicitação ao servidor
+            // Aqui está um exemplo simples usando a função fetch():
+            fetch('buscar_clientes.php?search=' + searchTerm)
+                .then(response => response.text())
+                .then(data => {
+                    // Atualizar a tbody da tabela com os resultados da busca
+                    document.querySelector('tbody').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Ocorreu um erro:', error);
+                });
+        }
+    </script>
+
+</body>
+
+</html>
